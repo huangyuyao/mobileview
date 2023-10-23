@@ -1,0 +1,185 @@
+img{
+  width: 100%;
+  height: auto;
+  border: solid 2px black;
+  border-radius: 15px;
+  
+}
+
+
+.loc{
+  background-color: darkslategrey;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.pg{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.outer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.outer div:first-child, .outer div:last-child{
+  grid-column: 1 / -1;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* can come back for this */
+body {
+  background-color: black;
+  color: bisque;
+}
+h1 {
+  font-size: xx-large;
+  font-family: Arial, 'Times New Roman', Times, serif, sans-serif;
+  color: bisque;
+  text-align: center;
+}
+h2 {
+  font-size: larger;
+  font-family:  Arial, 'Times New Roman', Times, serif, sans-serif;
+  color: bisque;
+  text-align: center;
+  text-decoration: underline;
+}
+h3 {
+  font-size: large;
+  font-family: Arial, 'Times New Roman', Times, serif, sans-serif;
+  color: bisque;
+}
+p {
+  font-size: 1em;
+  font-family:  Arial, 'Times New Roman', Times, serif, sans-serif;
+  line-height: 1.15;
+  text-align: justify;
+}
+
+
+nav li{
+  display:block ;
+  padding: 15px;
+}
+
+nav a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none; 
+  padding: 5px;
+  border: solid 2px black;
+  border-radius: 20px;
+  background-color: bisque;
+}
+
+
+
+
+
+nav{
+  /* background-color: #ddd; */
+  background-color: bisque;
+  padding: 5px; 
+  text-align: left;
+  /* background-color: red; */
+  animation-name: color;
+  animation-duration: 4s;
+}
+
+
+@keyframes color {
+  from {background-color: bisque;}
+  to {background-color: black;} 
+}
+footer{
+  background-color: black;
+  color: white;
+  padding-top: 30px;
+  text-align: center;
+}
+
+
+.text-block{
+  background-color: rgba(255, 255, 255, .8);
+  border: 10px solid black;
+  padding: 30px;
+}
+
+
+
+
+.skip{
+  display: none;
+}
+
+
+.curr{
+  padding: 10px;
+  /* font-weight: bold; */
+  background-color: darkgreen;
+  color: bisque;
+}
+
+
+@media screen and (min-width: 800px) {
+  /* this is desktop */
+  nav li{
+    display:inline;
+    padding-right:20px;
+  
+  }
+
+  nav{
+
+    text-align: right;
+    padding: 30px 0px;
+  }
+  .skip a:focus{
+    top: 20px;
+  }
+  .skip a{
+    background: white;
+    left: 0;
+    padding: 6px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+    position: absolute;
+    top: -40px;
+  }
+  *:focus{
+    border: solid black 2px;
+  }
+  nav a:hover, nav a:focus{
+    text-decoration: underline;
+    border: dashed 2px black;
+    
+  }
+  img{
+    width: 300px;
+  }
+
+}
+
+@media screen and (prefers-reduced-motion: reduce){
+
+  html{
+    scroll-behavior: auto; /* Removes scroll animation */
+  }
+  nav{
+    animation: none;
+  }
+
+  .skip a{
+    -webkit-transition: none; /* sets to default setting */
+    transition: none;        /* sets to default setting */
+  }
+  .gif{
+    display: none;
+  }
+
+
+}
