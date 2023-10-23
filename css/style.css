@@ -1,29 +1,323 @@
-body {
-    background-color: darkslategrey;
-    font: Arial;
-    line-height: normal;
+/* Global */
+:root {
+  --primary: #CF3A3A;
+  --light: #FFFFFF;
+  --dark: #2C4251;
 }
+
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+
+  font-size: 16px;
+  font-family: "Georgia, Times, Raleway";
+
+  
+}
+
+
+.gal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.outer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.outer div:first-child, .outer div:last-child{
+  grid-column: 1 / -1;
+}
+
+
+div {
+  display: grid;
+  grid-template-columns: 1fr; /* This makes images stack on top of each other */
+  grid-row-gap: 20px; /* This gives a gap of 20px between the images */
+}
+
+recipe {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: solid 2px black;
+  border-radius: 15px;
+  margin: 0 auto; /* Center the images horizontally within the grid cell */
+}
+
+.location{
+  background-color: #2f4f4f;
+  padding: 12px;
+  border: 1px solid #555;
+}
+
+.page{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.container div:first-child, .container div:last-child{
+  grid-column: 1 / -1;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #222;
+  color: #f8deb5;
+}
+
 h1 {
-    background-color: rebeccapurple;
-    font: Arial; 
-    font-size: medium;
-    line-height: normal;
+  font-size: 2.5em;
+  font-family: 'Georgia', serif;
+  color: #f8deb5;
+  text-align: center;
 }
 
 h2 {
-    background-color: royalblue;
-    font: Helvetica; 
-    font-size: small;
-    line-height: 1.25;
+  font-size: 1.5em;
+  font-family: 'Georgia', serif;
+  color: #f8deb5;
+  text-align: center;
+  text-decoration: underline;
 }
-
 
 h3 {
-    background-color: green;
-    font: Georgia; 
-    font-size: smaller;
-    line-height: normal;
+  font-size: 1.2em;
+  font-family: 'Georgia', serif;
+  color: #f8deb5;
+}
+
+p {
+  font-size: 1em;
+  font-family: 'Georgia', serif;
+  line-height: 1.25;
+  text-align: justify;
+}
+
+nav li{
+  display:block ;
+  padding: 10px;
+}
+
+nav a {
+  color: #000000; 
+  text-decoration: none;
+  border: 2px solid #555; 
+  border-radius: 20px;
+  padding: 5px 10px; 
+  transition: background-color 0.3s;
+}
+
+nav{
+  background-color: #f8deb5;
+  color:var(--dark)
+  padding: 7px; 
+  text-align: left;
+  animation: bgColorChange 4s;
+}
+
+@keyframes bgColorChange {
+  from {background-color: #f8deb5;}
+  to {background-color: #222;} 
+}
+
+footer{
+  background-color: #222;
+  color: #f8deb5;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.text-overlay{
+  background-color: rgba(248, 222, 181, 0.7);
+  border: 8px solid #333;
+  padding: 25px;
+}
+
+.skip{
+  display: none;
+}
+
+.current{
+  padding: 8px;
+  background-color: #006400;
+  color: #f8deb5;
+  text-decoration: underline;
+  text-transform:uppercase;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 800px) {
+  nav li{
+    display:inline;
+    padding-right: 15px;
+  }
+
+  nav{
+    text-align: right;
+    padding: 20px 0px;
+  }
+  .skip a:focus{
+    top: 15px;
+  }
+  .skip a{
+    background: #f8deb5;
+    left: 0;
+    padding: 5px;
+    transition: top 0.8s ease-out;
+    z-index: 1;
+    position: absolute;
+    top: -35px;
+  }
+  *:focus{
+    border: solid #333 2px;
+  }
+  nav a:hover, nav a:focus{
+    text-decoration: underline;
+    border: dashed 2px #333;
+  }
+  img{
+    width: 280px;
+  }
+}
+
+* Basic Styles and Color Palette */
+body {
+  background-color: #2b2b2b; /* Darker shade for contrast */
+  color: #f5f5f5; /* Softer shade of off-white for readability */
+  font-family: 'Arial', sans-serif; /* Using a simpler font stack */
+}
+
+h1, h2, h3, p {
+  margin: 20px 0;
+}
+
+/* Image Styles */
+img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #555;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s; 
+}
+
+img:hover {
+  transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #3d3d3d; /* Using a mid-dark gray */
+  padding: 10px;
+  text-align: left;
+  transition: background-color 0.3s;
+}
+
+nav:hover {
+  background-color: #292929; /* Slightly darker shade on hover */
+}
+
+nav li {
+  padding: 10px 15px;
+}
+
+nav a {
+  color: #f5f5f5; /* Off-white for better contrast */
+  text-decoration: none;
+  border: 2px solid #555; /* A lighter border */
+  border-radius: 20px;
+  padding: 5px 10px; /* Slightly more horizontal padding */
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+nav a:hover {
+  background-color: #555;
+  border-color: #f5f5f5;
+}
+
+/* Typography and Visual Hierarchy */
+h1 {
+  font-size: 2.5em; /* Using em for relative scaling */
+  text-align: center;
+  font-weight: bold; /* Bold for headings */
+}
+
+h2 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: normal; /* Lighter weight for sub-headings */
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.6; /* Improved line-height for readability */
 }
 
 
+@media screen and (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior: auto; 
+  }
+  nav{
+    animation: none;
+  }
 
+  .skip {
+    display: block;
+  }
+
+  .skip a:focus {
+    top: 15px;
+  }
+
+  .skip a {
+    background: #f8deb5;
+    left: 0;
+    padding: 5px;
+    transition: top 0.8s ease-out;
+    z-index: 1;
+    position: absolute;
+    top: -35px;
+  }
+
+  .animated-gif{
+    display: none;
+  }
+}
+
+/* Flexbox for the navigation list */
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* If the screen is too narrow, items will wrap to the next line */
+}
+
+nav li {
+  margin-right: 10px; /* Space between list items */
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  nav ul {
+      justify-content: center; /* Center items on the screen */
+  }
+}
