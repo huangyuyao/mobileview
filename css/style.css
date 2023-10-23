@@ -1,185 +1,199 @@
+/* Global */
+:root {
+  --primary: #CF3A3A;
+  --light: #FFFFFF;
+  --dark: #2C4251;
+}
+
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+
+  font-size: 16px;
+  font-family: "Georgia, Times, Raleway";
+}
+
 img{
   width: 100%;
   height: auto;
-  border: solid 2px black;
-  border-radius: 15px;
-  
+  border: solid 2px #333;
+  border-radius: 12px;
 }
 
-
-.loc{
-  background-color: darkslategrey;
-  padding: 10px;
-  border: 1px solid black;
+.location{
+  background-color: #2f4f4f;
+  padding: 12px;
+  border: 1px solid #555;
 }
 
-.pg{
+.page{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
-.outer{
+
+.container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   justify-items: center;
 }
-.outer div:first-child, .outer div:last-child{
+
+.container div:first-child, .container div:last-child{
   grid-column: 1 / -1;
 }
 
 html{
   scroll-behavior: smooth;
 }
-/* can come back for this */
+
 body {
-  background-color: black;
-  color: bisque;
+  background-color: #222;
+  color: #f8deb5;
 }
+
 h1 {
-  font-size: xx-large;
-  font-family: Arial, 'Times New Roman', Times, serif, sans-serif;
-  color: bisque;
+  font-size: 2.5em;
+  font-family: 'Georgia', serif;
+  color: #f8deb5;
   text-align: center;
 }
+
 h2 {
-  font-size: larger;
-  font-family:  Arial, 'Times New Roman', Times, serif, sans-serif;
-  color: bisque;
+  font-size: 1.5em;
+  font-family: 'Georgia', serif;
+  color: #f8deb5;
   text-align: center;
   text-decoration: underline;
 }
+
 h3 {
-  font-size: large;
-  font-family: Arial, 'Times New Roman', Times, serif, sans-serif;
-  color: bisque;
+  font-size: 1.2em;
+  font-family: 'Georgia', serif;
+  color: #f8deb5;
 }
+
 p {
   font-size: 1em;
-  font-family:  Arial, 'Times New Roman', Times, serif, sans-serif;
-  line-height: 1.15;
+  font-family: 'Georgia', serif;
+  line-height: 1.25;
   text-align: justify;
 }
 
-
 nav li{
   display:block ;
-  padding: 15px;
+  padding: 10px;
 }
 
 nav a{
-  color: black;
+  color: #222;
   font-weight: bold;
   text-decoration: none; 
-  padding: 5px;
-  border: solid 2px black;
-  border-radius: 20px;
-  background-color: bisque;
+  padding: 6px;
+  border: solid 2px #333;
+  border-radius: 15px;
+  background-color: #f8deb5;
 }
-
-
-
-
 
 nav{
-  /* background-color: #ddd; */
-  background-color: bisque;
-  padding: 5px; 
+  background-color: #f8deb5;
+  padding: 7px; 
   text-align: left;
-  /* background-color: red; */
-  animation-name: color;
-  animation-duration: 4s;
+  animation: bgColorChange 4s;
 }
 
-
-@keyframes color {
-  from {background-color: bisque;}
-  to {background-color: black;} 
+@keyframes bgColorChange {
+  from {background-color: #f8deb5;}
+  to {background-color: #222;} 
 }
+
 footer{
-  background-color: black;
-  color: white;
-  padding-top: 30px;
+  background-color: #222;
+  color: #f8deb5;
+  padding-top: 25px;
   text-align: center;
 }
 
-
-.text-block{
-  background-color: rgba(255, 255, 255, .8);
-  border: 10px solid black;
-  padding: 30px;
+.text-overlay{
+  background-color: rgba(248, 222, 181, 0.7);
+  border: 8px solid #333;
+  padding: 25px;
 }
-
-
-
 
 .skip{
   display: none;
 }
 
-
-.curr{
-  padding: 10px;
-  /* font-weight: bold; */
-  background-color: darkgreen;
-  color: bisque;
+.current{
+  padding: 8px;
+  background-color: #006400;
+  color: #f8deb5;
+  text-decoration: underline;
+  text-transform:uppercase;
 }
 
-
+/* Desktop styles */
 @media screen and (min-width: 800px) {
-  /* this is desktop */
   nav li{
     display:inline;
-    padding-right:20px;
-  
+    padding-right: 15px;
   }
 
   nav{
-
     text-align: right;
-    padding: 30px 0px;
+    padding: 20px 0px;
   }
   .skip a:focus{
-    top: 20px;
+    top: 15px;
   }
   .skip a{
-    background: white;
+    background: #f8deb5;
     left: 0;
-    padding: 6px;
-    -webkit-transition: top 1s ease-out;
-    transition: top 1s ease-out;
+    padding: 5px;
+    transition: top 0.8s ease-out;
     z-index: 1;
     position: absolute;
-    top: -40px;
+    top: -35px;
   }
   *:focus{
-    border: solid black 2px;
+    border: solid #333 2px;
   }
   nav a:hover, nav a:focus{
     text-decoration: underline;
-    border: dashed 2px black;
-    
+    border: dashed 2px #333;
   }
   img{
-    width: 300px;
+    width: 280px;
   }
-
 }
 
-@media screen and (prefers-reduced-motion: reduce){
 
+@media screen and (prefers-reduced-motion: reduce){
   html{
-    scroll-behavior: auto; /* Removes scroll animation */
+    scroll-behavior: auto; 
   }
   nav{
     animation: none;
   }
 
-  .skip a{
-    -webkit-transition: none; /* sets to default setting */
-    transition: none;        /* sets to default setting */
+  .skip {
+    display: block;
   }
-  .gif{
+
+  .skip a:focus {
+    top: 15px;
+  }
+
+  .skip a {
+    background: #f8deb5;
+    left: 0;
+    padding: 5px;
+    transition: top 0.8s ease-out;
+    z-index: 1;
+    position: absolute;
+    top: -35px;
+  }
+
+  .animated-gif{
     display: none;
   }
-
-
 }
