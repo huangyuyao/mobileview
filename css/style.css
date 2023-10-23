@@ -1,199 +1,185 @@
-/* Global */
-:root {
-  --primary: #CF3A3A;
-  --light: #FFFFFF;
-  --dark: #2C4251;
-}
-
-
-body {
-  background-color: var(--dark);
-  color: var(--light);
-
-  font-size: 16px;
-  font-family: "Georgia, Times, Raleway";
-}
-
 img{
   width: 100%;
   height: auto;
-  border: solid 2px #333;
-  border-radius: 12px;
+  border: solid 2px black;
+  border-radius: 15px;
+  
 }
 
-.location{
-  background-color: #2f4f4f;
-  padding: 12px;
-  border: 1px solid #555;
+
+.loc{
+  background-color: darkslategrey;
+  padding: 10px;
+  border: 1px solid black;
 }
 
-.page{
+.pg{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
 }
-
-.container{
+.outer{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   justify-items: center;
 }
-
-.container div:first-child, .container div:last-child{
+.outer div:first-child, .outer div:last-child{
   grid-column: 1 / -1;
 }
 
 html{
   scroll-behavior: smooth;
 }
-
+/* can come back for this */
 body {
-  background-color: #222;
-  color: #f8deb5;
+  background-color: black;
+  color: bisque;
 }
-
 h1 {
-  font-size: 2.5em;
-  font-family: 'Georgia', serif;
-  color: #f8deb5;
+  font-size: xx-large;
+  font-family: Arial, 'Times New Roman', Times, serif, sans-serif;
+  color: bisque;
   text-align: center;
 }
-
 h2 {
-  font-size: 1.5em;
-  font-family: 'Georgia', serif;
-  color: #f8deb5;
+  font-size: larger;
+  font-family:  Arial, 'Times New Roman', Times, serif, sans-serif;
+  color: bisque;
   text-align: center;
   text-decoration: underline;
 }
-
 h3 {
-  font-size: 1.2em;
-  font-family: 'Georgia', serif;
-  color: #f8deb5;
+  font-size: large;
+  font-family: Arial, 'Times New Roman', Times, serif, sans-serif;
+  color: bisque;
 }
-
 p {
   font-size: 1em;
-  font-family: 'Georgia', serif;
-  line-height: 1.25;
+  font-family:  Arial, 'Times New Roman', Times, serif, sans-serif;
+  line-height: 1.15;
   text-align: justify;
 }
 
+
 nav li{
   display:block ;
-  padding: 10px;
+  padding: 15px;
 }
 
 nav a{
-  color: #222;
+  color: black;
   font-weight: bold;
   text-decoration: none; 
-  padding: 6px;
-  border: solid 2px #333;
-  border-radius: 15px;
-  background-color: #f8deb5;
+  padding: 5px;
+  border: solid 2px black;
+  border-radius: 20px;
+  background-color: bisque;
 }
+
+
+
+
 
 nav{
-  background-color: #f8deb5;
-  padding: 7px; 
+  /* background-color: #ddd; */
+  background-color: bisque;
+  padding: 5px; 
   text-align: left;
-  animation: bgColorChange 4s;
+  /* background-color: red; */
+  animation-name: color;
+  animation-duration: 4s;
 }
 
-@keyframes bgColorChange {
-  from {background-color: #f8deb5;}
-  to {background-color: #222;} 
-}
 
+@keyframes color {
+  from {background-color: bisque;}
+  to {background-color: black;} 
+}
 footer{
-  background-color: #222;
-  color: #f8deb5;
-  padding-top: 25px;
+  background-color: black;
+  color: white;
+  padding-top: 30px;
   text-align: center;
 }
 
-.text-overlay{
-  background-color: rgba(248, 222, 181, 0.7);
-  border: 8px solid #333;
-  padding: 25px;
+
+.text-block{
+  background-color: rgba(255, 255, 255, .8);
+  border: 10px solid black;
+  padding: 30px;
 }
+
+
+
 
 .skip{
   display: none;
 }
 
-.current{
-  padding: 8px;
-  background-color: #006400;
-  color: #f8deb5;
-  text-decoration: underline;
-  text-transform:uppercase;
+
+.curr{
+  padding: 10px;
+  /* font-weight: bold; */
+  background-color: darkgreen;
+  color: bisque;
 }
 
-/* Desktop styles */
+
 @media screen and (min-width: 800px) {
+  /* this is desktop */
   nav li{
     display:inline;
-    padding-right: 15px;
+    padding-right:20px;
+  
   }
 
   nav{
+
     text-align: right;
-    padding: 20px 0px;
+    padding: 30px 0px;
   }
   .skip a:focus{
-    top: 15px;
+    top: 20px;
   }
   .skip a{
-    background: #f8deb5;
+    background: white;
     left: 0;
-    padding: 5px;
-    transition: top 0.8s ease-out;
+    padding: 6px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
     z-index: 1;
     position: absolute;
-    top: -35px;
+    top: -40px;
   }
   *:focus{
-    border: solid #333 2px;
+    border: solid black 2px;
   }
   nav a:hover, nav a:focus{
     text-decoration: underline;
-    border: dashed 2px #333;
+    border: dashed 2px black;
+    
   }
   img{
-    width: 280px;
+    width: 300px;
   }
+
 }
 
-
 @media screen and (prefers-reduced-motion: reduce){
+
   html{
-    scroll-behavior: auto; 
+    scroll-behavior: auto; /* Removes scroll animation */
   }
   nav{
     animation: none;
   }
 
-  .skip {
-    display: block;
+  .skip a{
+    -webkit-transition: none; /* sets to default setting */
+    transition: none;        /* sets to default setting */
   }
-
-  .skip a:focus {
-    top: 15px;
-  }
-
-  .skip a {
-    background: #f8deb5;
-    left: 0;
-    padding: 5px;
-    transition: top 0.8s ease-out;
-    z-index: 1;
-    position: absolute;
-    top: -35px;
-  }
-
-  .animated-gif{
+  .gif{
     display: none;
   }
+
+
 }
